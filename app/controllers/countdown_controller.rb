@@ -1,7 +1,7 @@
 
 class CountdownController < ApplicationController
 
-  def index
+  def cplusplus
     @title = 'ACCU BRISTOL DOES COUNTDOWN'
   end
 
