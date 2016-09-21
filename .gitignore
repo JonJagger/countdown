@@ -2,7 +2,3 @@
 
 /tmp
 /log
-
-# When web image is being built these files are temporarily placed in the root
-/Dockerfile
-/.dockerignore
