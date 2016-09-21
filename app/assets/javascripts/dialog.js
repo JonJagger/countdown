@@ -5,8 +5,7 @@ var countdown = (function(cd, $) {
 
   cd.dialog = function(html, close) {
     var buttons = {};
-    buttons[close] = function() { $(this).remove(); };
-    return $('<div>')
+    return $('<div class="countdown-dialog">')
       .html(html)
       .dialog({
         autoOpen: false,
