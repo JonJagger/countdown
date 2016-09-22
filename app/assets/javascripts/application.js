@@ -20,6 +20,6 @@
 //= require ./jquery.min
 //= require ./jquery_ujs
 //= require ./jquery-ui.min
-//= require ./dialog
+//= require ./countdown
 //= require_tree .
 

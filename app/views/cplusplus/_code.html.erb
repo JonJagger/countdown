@@ -23,8 +23,14 @@ $(function() {
       'const vector<string> tokens =' + "\n" +
       '{' + "\n";
     for (i = 0; i < tokens.length; i++) {
+      code += '    "';
+
+      var token = tokens[i];
       // TODO: if token is char/string literal I need to escape " and \
-      code += '    "' + tokens[i] + '", // ' + comments[i] + "\n";
+      code += token;
+
+      code += '",';
+      code += ' // ' + comments[i] + "\n";
     }
     code += '};';
     $('textarea#code').val(code);
