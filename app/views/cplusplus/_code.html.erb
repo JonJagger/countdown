@@ -22,30 +22,38 @@ $(function() {
   var comments = undefined;
 
   function redraw() {
-    var code =
+    var i, code =
       'const vector<string> tokens =' + "\n" +
       '{' + "\n";
     for (i = 0; i < tokens.length; i++) {
-      var token = tokens[i];
-      var rep = "";
-      for (j = 0; j < token.length; j++) {
-        var ch = token.charAt(j);
-        if (ch == '"')
-          rep += '\\"';
-        else if (ch == '\\')
-          rep += '\\\\';
-        else
-          rep += ch;
-      }
-      code += '    ';
-      code += '"' + rep + '",';
-      for (j = 0; j < (18-rep.length); j++) {
-        code += ' ';
-      }
-      code += ' // ' + comments[i] + "\n";
+      var token = escaped(tokens[i]);
+      code += '    ' + token + ',' + spacer(token) + ' // ' + comments[i] + "\n";
     }
     code += '};';
     $('textarea#code').val(code);
+  }
+
+  function escaped(s) {
+    var i, rep = '"';
+    for (i = 0; i < s.length; i++) {
+      var ch = s.charAt(i);
+      if (ch == '"')
+        rep += '\\"';
+      else if (ch == '\\')
+        rep += '\\\\';
+      else
+        rep += ch;
+    }
+    rep += '"';
+    return rep;
+  }
+
+  function spacer(token) {
+    var i, s = '';
+    for (i = 0; i < (20-token.length); i++) {
+      s += ' ';
+    }
+    return s;
   }
 
   cd.code.reset();
