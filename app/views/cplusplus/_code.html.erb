@@ -23,13 +23,24 @@ $(function() {
       'const vector<string> tokens =' + "\n" +
       '{' + "\n";
     for (i = 0; i < tokens.length; i++) {
-      code += '    "';
+      code += '    ';
 
       var token = tokens[i];
-      // TODO: if token is char/string literal I need to escape " and \
-      code += token;
+      var rep = "";
+      for (j = 0; j < token.length; j++) {
+        var ch = token.charAt(j);
+        if (ch == '"')
+          rep += '\\"';
+        else if (ch == '\\')
+          rep += '\\\\';
+        else
+          rep += ch;
+      }
+      code += '"' + rep + '",';
+      for (j = 0; j < (15-rep.length); j++) {
+        code += ' ';
+      }
 
-      code += '",';
       code += ' // ' + comments[i] + "\n";
     }
     code += '};';
