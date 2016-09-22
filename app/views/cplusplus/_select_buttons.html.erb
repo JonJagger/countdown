@@ -12,8 +12,9 @@ $(function() {
   var select = function(comment, tokens) {
     var token = sample(tokens);
     cd.chose(token, comment);
-    cd.dialog(token).dialog('open');
-    //TODO: drop close, wait 1 second, will then be in code area
+    var showIt = cd.dialog(token);
+    showIt.dialog('open');
+    setTimeout(function(){ showIt.dialog('close'); }, 1500);
   };
 
   var sample = function(array) {

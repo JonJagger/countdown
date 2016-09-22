@@ -11,9 +11,7 @@ var countdown = (function(cd, $) {
         modal: true,
         width: 'auto',
         height: 'auto',
-        buttons: {
-          'close': function() { $(this).remove(); }
-        }
+        buttons: {}
       });
   };
 
