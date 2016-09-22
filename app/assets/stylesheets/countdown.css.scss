@@ -7,7 +7,7 @@
 body {
   background: $darker-color;
        color: $lighter-color;
-   font-size: 36px;
+   font-size: 16px;
  font-family: "Verdana", sans-serif;
  font-weight: 900;
      padding: none;
@@ -16,9 +16,7 @@ body {
 
 .title {
   font-size: 54px;
-}
-.language {
-  font-size: 64px;
+  padding: { bottom: 15px; }
 }
 
 button {

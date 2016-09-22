@@ -1,18 +1,14 @@
 
 <div id="home-page">
-  <div class='title'>ACCU DOES COUNTDOWN</div>
-  <div class='language'>C++</div>
-
+  <div class='title'>ACCU DOES C++ COUNTDOWN</div>
   <table>
     <tr>
-      <td><%= render partial: 'select_buttons' %></td>
-      <td><%= render partial: 'code' %></td>
+      <td valign="top"><%= render partial: 'select_buttons' %></td>
+      <td>
+        <%= render partial: 'code' %>
+        <%= render partial: 'reset_button' %>
+        <%= render partial: 'instructions' %>
+      </td>
     </tr>
   </table>
-
-  <%= render partial: 'reset_button' %>
-  <a href="http://cyber-dojo.org/kata/edit/48F00964A7?avatar=lizard" target="_blank">
-    cyber-dojo session to fork from
-  </a>
-
 </div>
