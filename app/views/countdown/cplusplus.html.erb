@@ -3,23 +3,16 @@
 
 $(function() {
 
-  var shuffle = function(array) {
-    // Using Durstenfeld algorithm.
-    for (var i = array.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-  };
+  var keywords    = [];
+  var identifiers = [];
+  var operators   = [];
+  var punctuators = [];
+  var literals    = [];
 
-  var sample = function(array) {
-    shuffle(array);
-    return array[0];
-  };
+  //- - - - - - - - - - - - - - - - - - - - - -
 
-  $('#keyword').click(function() {
-    var keywords = [
+  var resetKeywords = function() {
+    keywords = [
       'catch',
       'class',
       'continue',
@@ -39,37 +32,74 @@ $(function() {
       'virtual',
       'while'
     ];
-    cd.dialog(sample(keywords), 'close').dialog('open');
-  });
+  };
 
-  $('#identifier').click(function() {
-    var identifiers = [
+  var resetIdentifiers = function() {
+    identifiers = [
       'wibble', 'snafu', 'foobar', 'x', 'd_33df8'
     ];
-    cd.dialog(sample(identifiers), 'close').dialog('open');
-  });
+  };
 
-  $('#operator').click(function() {
-    var operators = [
+  var resetOperators = function() {
+    operators = [
       '++', '--', '+=', '==', '<=', '!=', '&&', '!',
-      '~', '?:', '.', '->', '[]', '()', '()', ','
+      '~', '?', '.', '->', '()', ','
+      // '[]' ???
     ];
-    cd.dialog(sample(operators), 'close').dialog('open');
-  });
+  };
 
-  $('#punctuator').click(function() {
-    var punctuators = [
-      '{}', '()', ',', ';', ':', '...'
+  var resetPunctuators = function() {
+    punctuators = [
+      '{', '(', '[', ',', ';', ':', '...'
     ];
-    cd.dialog(sample(punctuators), 'close').dialog('open');
-  });
+  };
 
-  $('#literal').click(function() {
-    var literals = [
+  var resetLiterals = function() {
+    literals = [
       '42', '007', '"salmo"', '0x4b', '30ul', '3.149', "'\\t'", "'\\n'"
     ];
-    cd.dialog(sample(literals), 'close').dialog('open');
-  });
+  };
+
+  //- - - - - - - - - - - - - - - - - - - - - -
+
+  var select = function(tokens) {
+    cd.dialog(sample(tokens)).dialog('open');
+  };
+
+  var sample = function(array) {
+    shuffle(array);
+    return array[0];
+  };
+
+  var shuffle = function(array) {
+    // Using Durstenfeld algorithm.
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  };
+
+  //- - - - - - - - - - - - - - - - - - - - - -
+
+  $('#keyword'   ).click(function() { select(keywords);    });
+  $('#identifier').click(function() { select(identifiers); });
+  $('#operator'  ).click(function() { select(operators);   });
+  $('#punctuator').click(function() { select(punctuators); });
+  $('#literal'   ).click(function() { select(literals);    });
+
+  //- - - - - - - - - - - - - - - - - - - - - -
+
+  var reset = function() {
+    resetKeywords();
+    resetIdentifiers();
+    resetOperators();
+    resetPunctuators();
+    resetLiterals();
+  };
+
+  reset();
 
 });
 
@@ -110,5 +140,9 @@ $(function() {
     </tr>
 
   </table>
+
+  <a href="http://cyber-dojo.org/kata/edit/48F00964A7?avatar=lizard" target="_blank">
+    paste into here
+  </a>
 
 </div>
