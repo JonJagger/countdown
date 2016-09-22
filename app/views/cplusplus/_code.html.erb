@@ -20,7 +20,7 @@ $(function() {
   var tokens = [];
   var comments = [];
 
-  var redraw = function() {
+  function redraw() {
     var code =
       'const vector<string> tokens =' + "\n" +
       '{' + "\n";
@@ -39,7 +39,7 @@ $(function() {
           rep += ch;
       }
       code += '"' + rep + '",';
-      for (j = 0; j < (15-rep.length); j++) {
+      for (j = 0; j < (18-rep.length); j++) {
         code += ' ';
       }
 
@@ -47,7 +47,7 @@ $(function() {
     }
     code += '};';
     $('textarea#code').val(code);
-  };
+  }
 
   redraw();
 

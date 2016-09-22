@@ -15,12 +15,12 @@ $(function() {
 
   $('#reset').click(function() { reset(); });
 
-  var reset = function() {
+  function reset() {
     resetTokens();
     cd.resetCode();
-  };
+  }
 
-  var resetTokens = function() {
+  function resetTokens() {
     var lang = cd.cpp;
     lang.keywords = [
       'catch',
@@ -56,7 +56,7 @@ $(function() {
     lang.literals = [
       '42', '007', '"salmo"', '0x4b', '30ul', '3.149', "'\\t'", "'\\n'"
     ];
-  };
+  }
 
   reset();
 

@@ -3,11 +3,13 @@
 
 $(function() {
 
-  $('#keyword'   ).click(function() { select('keyword');    });
-  $('#identifier').click(function() { select('identifier'); });
-  $('#operator'  ).click(function() { select('operator');   });
-  $('#punctuator').click(function() { select('punctuator'); });
-  $('#literal'   ).click(function() { select('literal');    });
+  $('#tokens button').each(function(_) {
+    var type = $(this).attr('id');
+    $(this).text(type.toUpperCase());
+    $('#'+type).click(function() {
+      select(type);
+    });
+  });
 
   var select = function(type) {
     var token = sample(cd.cpp[type+'s']);
@@ -33,34 +35,34 @@ $(function() {
 
 //--></script>
 
-  <table>
+  <table id="tokens">
     <tr>
       <td>
-        <button type="button" id="keyword">KEYWORD</button>
+        <button type="button" id="keyword"></button>
       </td>
     </tr>
 
     <tr>
       <td>
-        <button type="button" id="identifier">IDENTIFIER</button>
+        <button type="button" id="identifier"></button>
       </td>
     </tr>
 
     <tr>
       <td>
-        <button type="button" id="operator">OPERATOR</button>
+        <button type="button" id="operator"></button>
       </td>
     </tr>
 
     <tr>
       <td>
-        <button type="button" id="punctuator">PUNCTUATOR</button>
+        <button type="button" id="punctuator"></button>
       </td>
     </tr>
 
     <tr>
       <td>
-        <button type="button" id="literal">LITERAL</button>
+        <button type="button" id="literal"></button>
       </td>
     </tr>
   </table>
