@@ -1,0 +1,39 @@
+
+<script type="text/javascript"><!--
+
+$(function() {
+
+  var tokens = [];
+  var comments = [];
+
+  cd.resetCode = function() {
+    tokens = [];
+    comments = [];
+    redraw();
+  };
+
+  cd.chose = function(token, comment) {
+    tokens.push(token);
+    comments.push(comment);
+    redraw();
+  };
+
+  var redraw = function() {
+    var code =
+      'const vector<string> tokens =' + "\n" +
+      '{' + "\n";
+    for (i = 0; i < tokens.length; i++) {
+      // TODO: if token is char/string literal I need to escape " and \
+      code += '    "' + tokens[i] + '", // ' + comments[i] + "\n";
+    }
+    code += '};';
+    $('textarea#code').val(code);
+  };
+
+  redraw();
+
+});
+
+//--></script>
+
+<textarea id="code" xreadonly="readonly"></textarea>
