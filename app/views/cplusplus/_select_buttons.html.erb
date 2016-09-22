@@ -3,7 +3,7 @@
 
 $(function() {
 
-  $('#tokens button').each(function(_) {
+  $('#tokens button').each(function() {
     var type = $(this).attr('id');
     $(this).text(type.toUpperCase());
     $('#'+type).click(function() {
@@ -11,17 +11,17 @@ $(function() {
     });
   });
 
-  var select = function(type) {
+  function select(type) {
     var token = sample(cd.cpp[type+'s']);
-    cd.chose(token, type);
-  };
+    cd.code.add(token, type);
+  }
 
-  var sample = function(array) {
+  function sample(array) {
     shuffle(array);
     return array.shift();
-  };
+  }
 
-  var shuffle = function(array) {
+  function shuffle(array) {
     // Durstenfeld algorithm.
     for (var i = array.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
@@ -29,7 +29,7 @@ $(function() {
       array[i] = array[j];
       array[j] = temp;
     }
-  };
+  }
 
 });
 

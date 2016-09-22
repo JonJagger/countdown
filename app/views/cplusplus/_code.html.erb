@@ -3,30 +3,29 @@
 
 $(function() {
 
-  cd.resetCode = function() {
-    tokens = [];
-    comments = [];
-    redraw();
-  };
-
-  cd.chose = function(token, comment) {
-    tokens.push(token);
-    comments.push(comment);
-    redraw();
+  cd.code = {
+    reset: function() {
+      tokens   = [];
+      comments = [];
+      redraw();
+    },
+    add: function(token, comment) {
+      tokens.push(token);
+      comments.push(comment);
+      redraw();
+    }
   };
 
   // - - - - - - - - - - - - - - - -
 
-  var tokens = [];
-  var comments = [];
+  var tokens   = undefined;
+  var comments = undefined;
 
   function redraw() {
     var code =
       'const vector<string> tokens =' + "\n" +
       '{' + "\n";
     for (i = 0; i < tokens.length; i++) {
-      code += '    ';
-
       var token = tokens[i];
       var rep = "";
       for (j = 0; j < token.length; j++) {
@@ -38,17 +37,18 @@ $(function() {
         else
           rep += ch;
       }
+      code += '    ';
       code += '"' + rep + '",';
       for (j = 0; j < (18-rep.length); j++) {
         code += ' ';
       }
-
       code += ' // ' + comments[i] + "\n";
     }
     code += '};';
     $('textarea#code').val(code);
   }
 
+  cd.code.reset();
   redraw();
 
 });
