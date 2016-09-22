@@ -3,8 +3,23 @@
 
 $(function() {
 
+  var shuffle = function(array) {
+    // Using Durstenfeld algorithm.
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  };
+
+  var sample = function(array) {
+    shuffle(array);
+    return array[0];
+  };
+
   $('#keyword').click(function() {
-    var tokens = [
+    var keywords = [
       'catch',
       'class',
       'continue',
@@ -24,49 +39,36 @@ $(function() {
       'virtual',
       'while'
     ];
-    var rand = Math.floor(Math.random() * tokens.length);
-    var token = tokens[rand];
-    cd.dialog(token, 'close').dialog('open');
+    cd.dialog(sample(keywords), 'close').dialog('open');
   });
 
   $('#identifier').click(function() {
-    var tokens = [
-      'wibble', 'snafu', 'fubar', 'x', 'd_33df8'
+    var identifiers = [
+      'wibble', 'snafu', 'foobar', 'x', 'd_33df8'
     ];
-    var rand = Math.floor(Math.random() * tokens.length);
-    var token = tokens[rand];
-    cd.dialog(token, 'close').dialog('open');
+    cd.dialog(sample(identifiers), 'close').dialog('open');
   });
 
   $('#operator').click(function() {
-    var tokens = [
-      '++', '--', '+=', '==', '<=', '!=', '&&', '!', '~', '?:', '.', '->',
-      '[] indexer',
-      '() function call',
-      '() cast',
-      ', comma'
+    var operators = [
+      '++', '--', '+=', '==', '<=', '!=', '&&', '!',
+      '~', '?:', '.', '->', '[]', '()', '()', ','
     ];
-    var rand = Math.floor(Math.random() * tokens.length);
-    var token = tokens[rand];
-    cd.dialog(token, 'close').dialog('open');
+    cd.dialog(sample(operators), 'close').dialog('open');
   });
 
   $('#punctuator').click(function() {
-    var tokens = [
+    var punctuators = [
       '{}', '()', ',', ';', ':', '...'
     ];
-    var rand = Math.floor(Math.random() * tokens.length);
-    var token = tokens[rand];
-    cd.dialog(token, 'close').dialog('open');
+    cd.dialog(sample(punctuators), 'close').dialog('open');
   });
 
   $('#literal').click(function() {
-    var tokens = [
+    var literals = [
       '42', '007', '"salmo"', '0x4b', '30ul', '3.149', "'\\t'", "'\\n'"
     ];
-    var rand = Math.floor(Math.random() * tokens.length);
-    var token = tokens[rand];
-    cd.dialog(token, 'close').dialog('open');
+    cd.dialog(sample(literals), 'close').dialog('open');
   });
 
 });
