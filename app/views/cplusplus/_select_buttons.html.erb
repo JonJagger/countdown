@@ -3,6 +3,12 @@
 
 $(function() {
 
+  $('#keyword'   ).click(function() { select(cd.cpp.keywords);    });
+  $('#identifier').click(function() { select(cd.cpp.identifiers); });
+  $('#operator'  ).click(function() { select(cd.cpp.operators);   });
+  $('#punctuator').click(function() { select(cd.cpp.punctuators); });
+  $('#literal'   ).click(function() { select(cd.cpp.literals);    });
+
   var select = function(tokens) {
     cd.dialog(sample(tokens)).dialog('open');
   };
@@ -21,12 +27,6 @@ $(function() {
       array[j] = temp;
     }
   };
-
-  $('#keyword'   ).click(function() { select(cd.cpp.keywords);    });
-  $('#identifier').click(function() { select(cd.cpp.identifiers); });
-  $('#operator'  ).click(function() { select(cd.cpp.operators);   });
-  $('#punctuator').click(function() { select(cd.cpp.punctuators); });
-  $('#literal'   ).click(function() { select(cd.cpp.literals);    });
 
 });
 

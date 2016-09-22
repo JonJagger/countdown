@@ -11,6 +11,8 @@ $(function() {
     literals: []
   };
 
+  $('#reset').click(function() { reset(); });
+
   var reset = function() {
     var lang = cd.cpp;
     lang.keywords = [
@@ -38,8 +40,8 @@ $(function() {
     ];
     lang.operators = [
       '++', '--', '+=', '==', '<=', '!=', '&&', '!',
-      '~', '?', '.', '->', '()', ','
-      // '[]' ???
+      '~', '?', '.', '->', ','
+      // '[]', '()' ???
     ];
     lang.punctuators = [
       '{', '(', '[', ',', ';', ':', '...'
@@ -48,8 +50,6 @@ $(function() {
       '42', '007', '"salmo"', '0x4b', '30ul', '3.149', "'\\t'", "'\\n'"
     ];
   };
-
-  $('#reset').click(function() { reset(); });
 
   reset();
 
