@@ -68,7 +68,7 @@ $(function() {
 
   var sample = function(array) {
     shuffle(array);
-    return array[0];
+    return array.shift();
   };
 
   var shuffle = function(array) {
@@ -98,6 +98,8 @@ $(function() {
     resetPunctuators();
     resetLiterals();
   };
+
+  $('#reset').click(function() { reset(); });
 
   reset();
 
@@ -138,11 +140,12 @@ $(function() {
         <button type="button" id="literal">LITERAL</button>
       </td>
     </tr>
-
   </table>
 
+  <button type="button" id="reset">reset</button>
+
   <a href="http://cyber-dojo.org/kata/edit/48F00964A7?avatar=lizard" target="_blank">
-    paste into here
+    cyber-dojo session to fork from
   </a>
 
 </div>

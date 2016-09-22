@@ -3,8 +3,7 @@
 var countdown = (function(cd, $) {
   "use strict";
 
-  cd.dialog = function(html, close) {
-    var buttons = {};
+  cd.dialog = function(html) {
     return $('<div class="countdown-dialog">')
       .html(html)
       .dialog({
@@ -12,7 +11,9 @@ var countdown = (function(cd, $) {
         modal: true,
         width: 'auto',
         height: 'auto',
-        buttons: buttons
+        buttons: {
+          'close': function() { $(this).remove(); }
+        }
       });
   };
 

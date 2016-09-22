@@ -1,8 +1,7 @@
 
 #countdown-page {
   font-size: 0.9em;
-     margin: { top: 0.3em; left: 0.3em; }
-    padding: { bottom: 32px; } // ensure that nothing gets hidden by the footer
+     margin: 20px;
 }
 
 body {
@@ -31,6 +30,11 @@ button {
    font-size: 36px;
  font-family: "Verdana", sans-serif;
  font-weight: 900;
+}
+
+button#reset {
+      width: 125px;
+  font-size: 12px;
 }
 
 .countdown-dialog {
