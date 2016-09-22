@@ -3,9 +3,6 @@
 
 $(function() {
 
-  var tokens = [];
-  var comments = [];
-
   cd.resetCode = function() {
     tokens = [];
     comments = [];
@@ -17,6 +14,11 @@ $(function() {
     comments.push(comment);
     redraw();
   };
+
+  // - - - - - - - - - - - - - - - -
+
+  var tokens = [];
+  var comments = [];
 
   var redraw = function() {
     var code =

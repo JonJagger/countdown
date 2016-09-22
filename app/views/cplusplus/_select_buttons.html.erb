@@ -3,14 +3,15 @@
 
 $(function() {
 
-  $('#keyword'   ).click(function() { select('keyword',    cd.cpp.keywords);    });
-  $('#identifier').click(function() { select('identifier', cd.cpp.identifiers); });
-  $('#operator'  ).click(function() { select('operator',   cd.cpp.operators);   });
-  $('#punctuator').click(function() { select('punctuator', cd.cpp.punctuators); });
-  $('#literal'   ).click(function() { select('literal',    cd.cpp.literals);    });
+  $('#keyword'   ).click(function() { select('keyword');    });
+  $('#identifier').click(function() { select('identifier'); });
+  $('#operator'  ).click(function() { select('operator');   });
+  $('#punctuator').click(function() { select('punctuator'); });
+  $('#literal'   ).click(function() { select('literal');    });
 
-  var select = function(comment, tokens) {
-    cd.chose(sample(tokens), comment);
+  var select = function(type) {
+    var token = sample(cd.cpp[type+'s']);
+    cd.chose(token, type);
   };
 
   var sample = function(array) {
