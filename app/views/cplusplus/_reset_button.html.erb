@@ -1,0 +1,61 @@
+
+<script type="text/javascript"><!--
+
+$(function() {
+
+  cd.cpp = {
+    keywords: [],
+    identifiers: [],
+    operators: [],
+    punctuators: [],
+    literals: []
+  };
+
+  var reset = function() {
+    var lang = cd.cpp;
+    lang.keywords = [
+      'catch',
+      'class',
+      'continue',
+      'default',
+      'dynamic_cast',
+      'else',
+      'friend',
+      'goto',
+      'if',
+      'operator',
+      'reinterpret_cast',
+      'return',
+      'static_cast',
+      'switch',
+      'template',
+      'typename',
+      'virtual',
+      'while'
+    ];
+    lang.identifiers = [
+      'wibble', 'snafu', 'foobar', 'x', 'd_33df8'
+    ];
+    lang.operators = [
+      '++', '--', '+=', '==', '<=', '!=', '&&', '!',
+      '~', '?', '.', '->', '()', ','
+      // '[]' ???
+    ];
+    lang.punctuators = [
+      '{', '(', '[', ',', ';', ':', '...'
+    ];
+    lang.literals = [
+      '42', '007', '"salmo"', '0x4b', '30ul', '3.149', "'\\t'", "'\\n'"
+    ];
+  };
+
+  $('#reset').click(function() { reset(); });
+
+  reset();
+
+});
+
+//--></script>
+
+<button type="button" id="reset">reset</button>
+

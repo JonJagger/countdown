@@ -1,0 +1,66 @@
+
+<script type="text/javascript"><!--
+
+$(function() {
+
+  var select = function(tokens) {
+    cd.dialog(sample(tokens)).dialog('open');
+  };
+
+  var sample = function(array) {
+    shuffle(array);
+    return array.shift();
+  };
+
+  var shuffle = function(array) {
+    // Using Durstenfeld algorithm.
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  };
+
+  $('#keyword'   ).click(function() { select(cd.cpp.keywords);    });
+  $('#identifier').click(function() { select(cd.cpp.identifiers); });
+  $('#operator'  ).click(function() { select(cd.cpp.operators);   });
+  $('#punctuator').click(function() { select(cd.cpp.punctuators); });
+  $('#literal'   ).click(function() { select(cd.cpp.literals);    });
+
+});
+
+//--></script>
+
+  <table>
+    <tr>
+      <td>
+        <button type="button" id="keyword">KEYWORD</button>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <button type="button" id="identifier">IDENTIFIER</button>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <button type="button" id="operator">OPERATOR</button>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <button type="button" id="punctuator">PUNCTUATOR</button>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <button type="button" id="literal">LITERAL</button>
+      </td>
+    </tr>
+  </table>
+

@@ -1,6 +1,6 @@
 
 Countdown::Application.routes.draw do
 
-  get '/cplusplus' => 'countdown#cplusplus'
+  get '/cplusplus' => 'cplusplus#select'
 
 end
