@@ -2,36 +2,27 @@
 <script type="text/javascript"><!--
 
 $(function() {
+  var textArea = $('textarea#code');
 
   cd.code = {
     reset: function() {
-      tokens   = [];
-      comments = [];
-      redraw();
+      var code =
+        'const vector<string> tokens =' + "\n" +
+        '{' + "\n" +
+        '};';
+      textArea.val(code);
     },
     add: function(token, comment) {
-      tokens.push(token);
-      comments.push(comment);
-      redraw();
+      var current = textArea.val();
+      var token = escaped(token);
+      code = current.substring(0, current.length - 2); // drop last };
+      code += '    ' + token + ',' + spacer(token) + ' // ' + comment + "\n";
+      code += '};';
+      textArea.val(code);
     }
   };
 
   // - - - - - - - - - - - - - - - -
-
-  var tokens   = undefined;
-  var comments = undefined;
-
-  function redraw() {
-    var i, code =
-      'const vector<string> tokens =' + "\n" +
-      '{' + "\n";
-    for (i = 0; i < tokens.length; i++) {
-      var token = escaped(tokens[i]);
-      code += '    ' + token + ',' + spacer(token) + ' // ' + comments[i] + "\n";
-    }
-    code += '};';
-    $('textarea#code').val(code);
-  }
 
   function escaped(s) {
     var i, rep = '"';
@@ -57,10 +48,9 @@ $(function() {
   }
 
   cd.code.reset();
-  redraw();
 
 });
 
 //--></script>
 
-<textarea id="code" readonly="readonly"></textarea>
+<textarea id="code"></textarea>
