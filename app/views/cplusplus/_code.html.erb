@@ -14,9 +14,8 @@ $(function() {
     },
     add: function(token, comment) {
       var current = textArea.val();
-      var token = escaped(token);
       code = current.substring(0, current.length - 2); // drop last };
-      code += '    ' + token + ',' + spacer(token) + ' // ' + comment + "\n";
+      code += '    ' + quoted(token) + ',' + spacer(token) + ' // ' + comment + "\n";
       code += '};';
       textArea.val(code);
     }
@@ -24,19 +23,8 @@ $(function() {
 
   // - - - - - - - - - - - - - - - -
 
-  function escaped(s) {
-    var i, rep = '"';
-    for (i = 0; i < s.length; i++) {
-      var ch = s.charAt(i);
-      if (ch == '"')
-        rep += '\\"';
-      else if (ch == '\\')
-        rep += '\\\\';
-      else
-        rep += ch;
-    }
-    rep += '"';
-    return rep;
+  function quoted(s) {
+    return '"' + s + '"';
   }
 
   function spacer(token) {
