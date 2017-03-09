@@ -5,7 +5,6 @@ $(function() {
 
   $('#tokens button').each(function() {
     var type = $(this).attr('id');
-    $(this).text(type.toUpperCase());
     $('#'+type).click(function() {
       select(type);
     });
@@ -38,25 +37,13 @@ $(function() {
   <table id="tokens">
     <tr>
       <td>
-        <button type="button" id="keyword"></button>
+        <button type="button" id="keyword">KEYWORD</button>
       </td>
     </tr>
 
     <tr>
       <td>
-        <button type="button" id="identifier"></button>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <button type="button" id="operator"></button>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <button type="button" id="punctuator"></button>
+        <button type="button" id="not_keyword">!KEYWORD</button>
       </td>
     </tr>
 

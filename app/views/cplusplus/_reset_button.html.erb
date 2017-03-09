@@ -5,9 +5,7 @@ $(function() {
 
   cd.cpp = {
     keywords: [],
-    identifiers: [],
-    operators: [],
-    punctuators: []
+    not_keywords: []
   };
 
   // - - - - - - - - - - - - - - - - - - - - - -
@@ -41,15 +39,10 @@ $(function() {
       'virtual',
       'while'
     ];
-    lang.identifiers = [
-      'wibble', 'snafu', 'foobar', 'x', 'd_33df8'
-    ];
-    lang.operators = [
+    lang.not_keywords = [
       '++', '--', '+=', '==', '<=', '!=', '&&', '!',
-      '~', '?', '.', '->', ','
-    ];
-    lang.punctuators = [
-      '(', '[', ',', ':', '...'
+      '~', '.', '->',,
+      '[', ',', ':', '...'
     ];
   }
 
