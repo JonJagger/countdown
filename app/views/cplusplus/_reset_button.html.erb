@@ -4,8 +4,8 @@
 $(function() {
 
   cd.cpp = {
-    keywords: [],
-    not_keywords: []
+    keywords: {},
+    not_keywords: {}
   };
 
   // - - - - - - - - - - - - - - - - - - - - - -
@@ -19,31 +19,45 @@ $(function() {
 
   function resetTokens() {
     var lang = cd.cpp;
-    lang.keywords = [
-      'catch',
-      'class',
-      'continue',
-      'default',
-      'dynamic_cast',
-      'else',
-      'friend',
-      'goto',
-      'if',
-      'operator',
-      'reinterpret_cast',
-      'return',
-      'static_cast',
-      'switch',
-      'template',
-      'typename',
-      'virtual',
-      'while'
-    ];
-    lang.not_keywords = [
-      '++', '--', '+=', '==', '<=', '!=', '&&', '!',
-      '~', '.', '->',,
-      '[', ',', ':', '...'
-    ];
+    lang.keywords = {
+      'catch':'keyword',
+      'class':'keyword',
+      'continue':'keyword',
+      'default':'keyword',
+      'dynamic_cast':'keyword',
+      'else':'keyword',
+      'friend':'keyword',
+      'goto':'keyword',
+      'if':'keyword',
+      'operator':'keyword',
+      'reinterpret_cast':'keyword',
+      'return':'keyword',
+      'static_cast':'keyword',
+      'switch':'keyword',
+      'template':'keyword',
+      'typename':'keyword',
+      'virtual':'keyword',
+      'while':'keyword'
+    };
+    lang.not_keywords = {
+      '++':'operator',
+      '--':'operator',
+      '+=':'operator',
+      '==':'operator',
+      '<=':'operator',
+      '!=':'operator',
+      '&&':'operator',
+      '!':'operator',
+      '~':'operator',
+      '.':'operator',
+      '->':'operator',
+      '[':'punctuator',
+      ',':'punctuator',
+      ':':'punctuator',
+      '...':'punctuator',
+      '42':'literal',
+      'fubar':'identifier'
+    };
   }
 
   reset();

@@ -10,12 +10,14 @@ $(function() {
     });
   });
 
-  function select(type) {
-    var token = sample(cd.cpp[type+'s']);
+  function select(name) {
+    var token = sample(cd.cpp[name+'s']);
+    var type = cd.cpp[name+'s'][token];
     cd.code.add(token, type);
   }
 
-  function sample(array) {
+  function sample(hash) {
+    var array = Object.keys(hash);
     shuffle(array);
     return array.shift();
   }
